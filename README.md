@@ -1,22 +1,17 @@
-Cookbook: minitest-handler<br/>
-Author: David Petzel <davidpetzel@gmail.com><br/>
-Author: Bryan W. Berry <bryan.berry@gmail.com><br/>
-Author: Bryan McLellan <btm@loftninjas.org><br/>
-Copyright: 2012 Opscode, Inc.<br/>
-License: Apache 2.0<br/>
+minitest-handler Cookbook
 
 Description
 ===========
 
-# <a name="title"></a> minitest-handler [![Build Status](https://secure.travis-ci.org/btm/minitest-handler-cookbook.png?branch=master)](http://travis-ci.org/btm/minitest-handler-cookbook)
+[![Build Status](https://secure.travis-ci.org/btm/minitest-handler-cookbook.png?branch=master)](http://travis-ci.org/btm/minitest-handler-cookbook)
 
 This cookbook utilizes the minitest-chef-handler project to facilitate
 cookbook testing. By default, minitest-handler will collect all the
 tests in your cookbook_path and run them. 
 
-minitest-chef-handler project: https://github.com/calavera/minitest-chef-handler<br/>
-stable minitest-handler cookbook: http://community.opscode.com/cookbooks/minitest-handler<br/>
-minitest-handler cookbook development: https://github.com/btm/minitest-handler-cookbook<br/>
+* minitest-chef-handler project: https://github.com/calavera/minitest-chef-handler
+* stable minitest-handler cookbook: http://community.opscode.com/cookbooks/minitest-handler
+* minitest-handler cookbook development: https://github.com/btm/minitest-handler-cookbook
 
 **Note**: Version 0.1.8 deprecated use of
 ``files/default/tests/minitest/*_test.rb`` and the location of support
@@ -30,18 +25,13 @@ If you have any helper libraries, they should match `files/default/test/*helper*
 
 Attributes
 ==========
-* `node[:minitest][:gem_version]` - The version of the [minitest](http://rubygems.org/gems/minitest)
-  gem to install and use. 
+* `node[:minitest][:gem_version]` - The version of the [minitest](http://rubygems.org/gems/minitest) gem to install and use. 
   * Default: 3.0.1
-* `node[:minitest][:chef_handler_gem_version]` - The version of the [minitest-chef-handler](http://rubygems.org/gems/minitest-chef-handler)
-  gem to install and use. 
+* `node[:minitest][:chef_handler_gem_version]` - The version of the [minitest-chef-handler](http://rubygems.org/gems/minitest-chef-handler) gem to install and use. 
   * Default: 1.0.1
 * `node[:minitest][:path]` - Location to store and find test files. 
   * Default: `/var/chef/minitest`
-* `node[:minitest][:recipes]` - The names of all recipes included during the 
-  chef run, whether by insertion to the run_list, inclusion through a role, or 
-  added with `include_recipe`. If you only want tests for select recipes to run,
-  override this value with the names of the recipes that you want tested.
+* `node[:minitest][:recipes]` - The names of all recipes included during the chef run, whether by insertion to the run_list, inclusion through a role, or added with `include_recipe`. If you only want tests for select recipes to run, override this value with the names of the recipes that you want tested.
   * Default: []
 * `node[:minitest][:filter]` - Filter test names on a pattern (regex)
   * Default: `nil`
@@ -61,11 +51,8 @@ Usage
 =====
 
 * Add ``recipe[minitest-handler]`` somewhere on your run_list, preferably last
-* Place tests in ``files/default/test/`` with the name **your-recipe-name\_test.rb**
-  (default recipe is named **default_test.rb**)
-* Put any helper functions you have in ``files/default/test/spec_helper.rb`` but
-  minitest-handler will ensure that you have access to any file that
-  matches the glob ``files/test/*helper.rb``
+* Place tests in ``files/default/test/`` with the name **your-recipe-name\_test.rb** (default recipe is named **default_test.rb**)
+* Put any helper functions you have in ``files/default/test/spec_helper.rb`` but minitest-handler will ensure that you have access to any file that matches the glob ``files/test/*helper.rb``
 
 [Minitest](https://github.com/seattlerb/minitest)
 
@@ -142,3 +129,25 @@ Come release time here is the checklist:
 * Share the cookbook to the community site
   `knife cookbook site share minitest-handler Utilities -o ../`
 * Bump the version in metadata.rb to the next *patch level* odd number
+
+License & Authors
+-----------------
+- Author: David Petzel <davidpetzel@gmail.com>
+- Author: Bryan W. Berry <bryan.berry@gmail.com>
+- Author: Bryan McLellan <btm@loftninjas.org>
+
+```text
+Copyright (c) 2012 Opscode, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
